@@ -5,10 +5,8 @@ module.exports = function(app){
       res.json(friends);
     });
 
-    app.post("/api/tables", function(req, res) {
-      var newTable = req.body;
-
-      tables.push(newTable);
-      res.json(newTable);
+    app.post("/api/friends", function(req, res) {
+      var newFriend = req.body;
+      friends.push(newFriend);
     });
 }
