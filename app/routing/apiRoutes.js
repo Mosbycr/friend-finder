@@ -4,4 +4,11 @@ module.exports = function(app){
     app.get("/api/friends", function(req, res) {
       res.json(friends);
     });
+
+    app.post("/api/tables", function(req, res) {
+      var newTable = req.body;
+
+      tables.push(newTable);
+      res.json(newTable);
+    });
 }
