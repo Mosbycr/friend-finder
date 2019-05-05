@@ -218,7 +218,7 @@
      <script = type="text/javascript">
      $("#submit").on("click", function(event){
          event.preventDefault();
-         alert("i've been clicked");
+        //  alert("i've been clicked");
      
     var newProfile = {
       name: $("#profileName")
@@ -243,13 +243,13 @@
 
     console.log(newProfile);
 
-    // $.ajax({
-    //     url: '/api/friends',
-    //     method: 'POST',
-    //     data: newProfile
-    // }).then(function(data) {
-    //     alert("Your profile has been added");
-    // })
+    $.ajax({
+        url: '/api/friends',
+        method: 'POST',
+        data: newProfile
+    }).then(function(data) {
+        //alert("Your profile has been added");
+    })
 })
 </script>
   </body>
