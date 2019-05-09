@@ -12,7 +12,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="assets/css/friend.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/friend.css" />
   </head>
   <body>
     <div class="container bg-info text-dark">
@@ -23,7 +23,7 @@
             Choose the number the reflects how true or false the statment is to
             you.
           </h3>
-          <h4>Number ranging from agree greatly:5 to disagree greatly:1</h4>
+          <h4>Numbers ranging from agree greatly:5 to disagree greatly:1</h4>
         </div>
       </div>
 
@@ -213,44 +213,66 @@
         </div>
       </div>
     </div>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-     <!-- <script type="text/javascript" src="assets/js/index.js"></script> -->
-     <script = type="text/javascript">
-     $("#submit").on("click", function(event){
-         event.preventDefault();
-        //  alert("i've been clicked");
-     
-    var newProfile = {
-      name: $("#profileName")
-        .val()
-        .trim(),
-      photo: $("#profilePicLink")
-        .val()
-        .trim(),
-      answers: [
-        $("#question1").val(),
-        $("#question2").val(),
-        $("#question3").val(),
-        $("#question4").val(),
-        $("#question5").val(),
-        $("#question6").val(),
-        $("#question7").val(),
-        $("#question8").val(),
-        $("#question9").val(),
-        $("#question10").val()
-      ]
-    };
 
-    console.log(newProfile);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/index.js"></script> -->
+    <script type="text/javascript">
+      $("#submit").on("click", function(event) {
+        event.preventDefault();
+       //grabbin input data from forms and input groups placing in variable
+        var newProfile = {
+          name: $("#profileName")
+            .val()
+            .trim(),
+          photo: $("#profilePicLink")
+            .val()
+            .trim(),
+          answers: [
+            $("#question1").val(),
+            $("#question2").val(),
+            $("#question3").val(),
+            $("#question4").val(),
+            $("#question5").val(),
+            $("#question6").val(),
+            $("#question7").val(),
+            $("#question8").val(),
+            $("#question9").val(),
+            $("#question10").val()
+          ]
+        };
+        // calling the function below
+        checkProfileInput();
+        // validating all form input fields are filled out, alert if not, ajax call to send over newProfile information if filled out
+        function checkProfileInput() {
+          if (
+            $("#profileName").val() === "" ||
+            $("#profilePicLink").val() === "" ||
+            $("#question1").val() === "" ||
+            $("#question2").val() === "" ||
+            $("#question3").val() === "" ||
+            $("#question4").val() === "" ||
+            $("#question5").val() === "" ||
+            $("#question6").val() === "" ||
+            $("#question7").val() === "" ||
+            $("#question8").val() === "" ||
+            $("#question9").val() === "" ||
+            $("#question10").val() === ""
+          ) {
+            alert(
+              "Please fill out all of the information fields and questions before submitting!"
+            );
+          } else {
+            console.log(newProfile);
 
-    $.ajax({
-        url: '/api/friends',
-        method: 'POST',
-        data: newProfile
-    }).then(function(data) {
-        //alert("Your profile has been added");
-    })
-})
-</script>
+            $.ajax({
+              url: "/api/friends",
+              method: "POST",
+              data: newProfile
+            }).then(function(data) {
+            });
+          }
+        }
+      });
+    </script>
   </body>
 </html>
