@@ -219,58 +219,60 @@
     <script type="text/javascript">
       $("#submit").on("click", function(event) {
         event.preventDefault();
-       //grabbin input data from forms and input groups placing in variable
-        var newProfile = {
-          name: $("#profileName")
-            .val()
-            .trim(),
-          photo: $("#profilePicLink")
-            .val()
-            .trim(),
-          answers: [
-            $("#question1").val(),
-            $("#question2").val(),
-            $("#question3").val(),
-            $("#question4").val(),
-            $("#question5").val(),
-            $("#question6").val(),
-            $("#question7").val(),
-            $("#question8").val(),
-            $("#question9").val(),
-            $("#question10").val()
-          ]
-        };
+
         // calling the function below
         checkProfileInput();
         // validating all form input fields are filled out, alert if not, ajax call to send over newProfile information if filled out
         function checkProfileInput() {
+          var validInput = true;
           if (
             $("#profileName").val() === "" ||
-            $("#profilePicLink").val() === "" ||
-            $("#question1").val() === "" ||
-            $("#question2").val() === "" ||
-            $("#question3").val() === "" ||
-            $("#question4").val() === "" ||
-            $("#question5").val() === "" ||
-            $("#question6").val() === "" ||
-            $("#question7").val() === "" ||
-            $("#question8").val() === "" ||
-            $("#question9").val() === "" ||
-            $("#question10").val() === ""
+            $("#profilePicLink").val() === ""
           ) {
-            alert(
-              "Please fill out all of the information fields and questions before submitting!"
-            );
-          } else {
-            console.log(newProfile);
-
-            $.ajax({
-              url: "/api/friends",
-              method: "POST",
-              data: newProfile
-            }).then(function(data) {
-            });
+            validInput = false;
           }
+
+          $(".custom-select").each(function() {
+            if ($(this).val() === "Select from the options below") {
+              validInput = false;
+            }
+          });
+          return validInput;
+        }
+
+        if (checkProfileInput()== true) {
+          //grabbin input data from forms and input groups placing in variable
+          var newProfile = {
+            name: $("#profileName")
+              .val()
+              .trim(),
+            photo: $("#profilePicLink")
+              .val()
+              .trim(),
+            answers: [
+              $("#question1").val(),
+              $("#question2").val(),
+              $("#question3").val(),
+              $("#question4").val(),
+              $("#question5").val(),
+              $("#question6").val(),
+              $("#question7").val(),
+              $("#question8").val(),
+              $("#question9").val(),
+              $("#question10").val()
+            ]
+          };
+          console.log(newProfile);
+
+          $.ajax({
+            url: "/api/friends",
+            method: "POST",
+            data: newProfile
+          }).then(function(data) {});
+        } else {
+          alert(
+            "Please fill out all of the information fields and questions before submitting!"
+          );
         }
       });
     </script>
