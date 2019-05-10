@@ -10,28 +10,31 @@ module.exports = function(app){
       var currentProfile = req.body.answers;
       console.log("This is the current profile answers" + currentProfile);
       //max difference answer could be 4*10
-      var totalDiff = 40;
-      var difference = 0;
-      var bestFriend;
+     var currentDiff = 0;
+      var bestFriend = {
+        name: "",
+        photo: "",
+        difference: 50
+      }
 
       for(var i = 0; i < friends.length; i++){
         var friendAnswers = friends[i].answers;
+        console.log("Friend name: " + friends[i].name);
         console.log("FriendAnswers" + friendAnswers);
+        currentDiff = 0;
+
         
         for(var j = 0; j < friendAnswers.length; j++){
-          difference += Math.abs(friendAnswers[j] - currentProfile[j]);
-          console.log("difference between friends and current" + difference);
-
+          currentDiff += Math.abs(friendAnswers[j] - currentProfile[j]);
+          console.log("difference: " + currentDiff);
         }
 
-         if (difference <= totalDiff) {
-           totalDiff = difference;
-           console.log("totalDifference" + totalDiff);
-           bestFriend = friends[i];
-           console.log("Winning Bestie: " +bestFriend);
+         if (currentDiff < bestFriend.difference) {
+          bestFriend.name = friends[i].name,
+          bestFriend.photo = friends[i].photo,
+          bestFriend.difference = currentDiff  
          }
-
-        
+         console.log(bestFriend); 
       }
 
 
