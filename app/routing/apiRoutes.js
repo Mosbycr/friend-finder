@@ -8,27 +8,27 @@ module.exports = function(app){
     app.post("/api/friends", function(req, res) {
       var newProfile = req.body;
       var currentProfile = req.body.answers;
-      console.log(currentProfile);
+      console.log("This is the current profile answers" + currentProfile);
       //max difference answer could be 4*10
       var totalDiff = 40;
+      var difference = 0;
       var bestFriend;
 
       for(var i = 0; i < friends.length; i++){
         var friendAnswers = friends[i].answers;
-        console.log(friendAnswers);
-        var difference = 0;
-
+        console.log("FriendAnswers" + friendAnswers);
+        
         for(var j = 0; j < friendAnswers.length; j++){
-          difference += difference + Math.abs(friendAnswers[j] - currentProfile[j]);
-          console.log(difference);
+          difference += Math.abs(friendAnswers[j] - currentProfile[j]);
+          console.log("difference between friends and current" + difference);
 
         }
 
          if (difference <= totalDiff) {
            totalDiff = difference;
-           console.log(totalDiff);
+           console.log("totalDifference" + totalDiff);
            bestFriend = friends[i];
-           console.log(bestFriend);
+           console.log("Winning Bestie: " +bestFriend);
          }
 
         
