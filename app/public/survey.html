@@ -6,29 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Friend Finder</title>
 
-    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/friend.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="friend.css" /> -->
   </head>
   <body>
     <div class="container bg-info text-dark">
       <div class="row text-center">
         <div class="col-12">
-          <h1 class="text-center">Answer the Information & Survey Questions Below</h1>
-          <h2 class="text-center">All are required in order to find your new best mate</h2>
+          <h1 class="text-center pt-4">
+            Answer the Information & Survey Questions Below
+          </h1>
+          <h2 class="text-center">
+            All are required in order to find your new best mate
+          </h2>
         </div>
       </div>
 
       <div class="row mt-4">
         <div class="col-12">
           <form>
-            <h3>Enter your Information</h3>
-            <div class="form-group">
+            <h3 class="pt-5 text-center">Enter your Information</h3>
+            <div class="form-group pt-2">
               <label for="profileName">Name (required)</label>
               <input type="text" class="form-control" id="profileName" />
             </div>
@@ -42,13 +45,13 @@
 
       <div class="row mt-4">
         <div class="col-12">
-          <h3>
+          <h3 class="text-center">
             Choose the number the reflects how true or false the statment is to
             you.
           </h3>
-          <h4>Agree greatly 5 4 3 2 1 Disagree greatly</h4>
-          <br>
-          <p>When going out for Mexican you would order Queso everytime</p>
+          <h4 class="text-center">Agree greatly 5 4 3 2 1 Disagree greatly</h4>
+          <br />
+          <p class="pt-2">When going out for Mexican you would order Queso everytime</p>
           <div class="input-group">
             <select class="custom-select" id="question1">
               <option selected>Select from the options below</option>
@@ -64,7 +67,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>
+          <p class="pt-3">
             Me time is needed after socializing or being in large group settings
           </p>
           <div class="input-group">
@@ -82,7 +85,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>When given the choice you would choose movies over books</p>
+          <p class="pt-3">When given the choice you would choose movies over books</p>
           <div class="input-group">
             <select class="custom-select" id="question3">
               <option selected>Select from the options below</option>
@@ -98,7 +101,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>You may try to cook, but it ends up burning</p>
+          <p class="pt-3">You may try to cook, but it ends up burning</p>
           <div class="input-group">
             <select class="custom-select" id="question4">
               <option selected>Select from the options below</option>
@@ -114,7 +117,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>You would pick cats over dogs</p>
+          <p class="pt-3">You would pick cats over dogs</p>
           <div class="input-group">
             <select class="custom-select" id="question5">
               <option selected>Select from the options below</option>
@@ -130,7 +133,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>You are a day bird rather than a night owl</p>
+          <p class="pt-3">You are a day bird rather than a night owl</p>
           <div class="input-group">
             <select class="custom-select" id="question6">
               <option selected>Select from the options below</option>
@@ -146,7 +149,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>You have to check the notifications on your phone</p>
+          <p class="pt-3">You have to check the notifications on your phone</p>
           <div class="input-group">
             <select class="custom-select" id="question7">
               <option selected>Select from the options below</option>
@@ -162,7 +165,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>Random singing and dancing is a daily occurence</p>
+          <p class="pt-3">Random singing and dancing is a daily occurence</p>
           <div class="input-group">
             <select class="custom-select" id="question8">
               <option selected>Select from the options below</option>
@@ -178,7 +181,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>You prefer the beach over the moutains</p>
+          <p class="pt-3">You prefer the beach over the moutains</p>
           <div class="input-group">
             <select class="custom-select" id="question9">
               <option selected>Select from the options below</option>
@@ -194,7 +197,7 @@
 
       <div class="row">
         <div class="col-12">
-          <p>Running is your favorite way to exercise</p>
+          <p class="pt-3">Running is your favorite way to exercise</p>
           <div class="input-group">
             <select class="custom-select" id="question10">
               <option selected>Select from the options below</option>
@@ -210,23 +213,38 @@
 
       <div class="row">
         <div class="col-12">
-          <button type="button" class="btn btn-lg btn-primary" id="submit">
+          <button type="button" class="btn btn-lg btn-light text-info mt-4 mb-5" id="submit">
             <h4>Submit Survey</h4>
           </button>
         </div>
       </div>
 
-      <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div
+        class="modal fade"
+        id="matchModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="matchModal"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-lg"
+          role="document"
+        >
           <div class="modal-content text-center">
             <div class="modal-header">
-              <h3 class="modal-title" id="matchModal">Meet Your Match</h3>
-              <button type="button" class="close" data-dismiss="modal"aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+              <h3 class="modal-title text-info" id="matchModal">Meet Your Match</h3>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body text-info">
               <h4 id="matchName"></h4>
               <img
                 id="matchImg"
@@ -251,7 +269,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!-- <script type="text/javascript" src="assets/js/index.js"></script> -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script type="text/javascript">
       $("#submit").on("click", function(event) {
         event.preventDefault();
@@ -277,7 +299,7 @@
         }
 
         if (checkProfileInput() == true) {
-          //grabbin input data from forms and input groups placing in variable
+          //grabbing input data from forms and input groups placing in variable
           var newProfile = {
             name: $("#profileName")
               .val()
@@ -310,7 +332,6 @@
             // console.log(data.name);
             $("#matchModal").modal("show");
           });
-          
         } else {
           alert(
             "Please fill out all of the information fields and questions before submitting!"
