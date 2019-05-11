@@ -6,24 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Friend Finder</title>
 
+    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="./assets/css/friend.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/friend.css" /> -->
   </head>
   <body>
     <div class="container bg-info text-dark">
       <div class="row text-center">
         <div class="col-12">
-          <h1>Answer the Survey Questions Below</h1>
-          <h3>
-            Choose the number the reflects how true or false the statment is to
-            you.
-          </h3>
-          <h4>Numbers ranging from agree greatly:5 to disagree greatly:1</h4>
+          <h1 class="text-center">Answer the Information & Survey Questions Below</h1>
+          <h2 class="text-center">All are required in order to find your new best mate</h2>
         </div>
       </div>
 
@@ -45,6 +42,12 @@
 
       <div class="row mt-4">
         <div class="col-12">
+          <h3>
+            Choose the number the reflects how true or false the statment is to
+            you.
+          </h3>
+          <h4>Agree greatly 5 4 3 2 1 Disagree greatly</h4>
+          <br>
           <p>When going out for Mexican you would order Queso everytime</p>
           <div class="input-group">
             <select class="custom-select" id="question1">
@@ -213,13 +216,13 @@
         </div>
       </div>
 
-      <div class="modal fade" id="matchModal" tabindex="-1" role="dialog">
+      <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content text-center">
             <div class="modal-header">
               <h3 class="modal-title" id="matchModal">Meet Your Match</h3>
-              <button type="button" class="close" data-dismiss="modal">
-                &times;
+              <button type="button" class="close" data-dismiss="modal"aria-label="Close">
+          <span aria-hidden="true">&times;</span>
               </button>
             </div>
 
@@ -248,6 +251,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <!-- <script type="text/javascript" src="assets/js/index.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
       $("#submit").on("click", function(event) {
         event.preventDefault();
@@ -300,7 +304,13 @@
             url: "/api/friends",
             method: "POST",
             data: newProfile
-          }).then(function(data) {});
+          }).then(function(data) {
+            $("#matchName").text(data.name);
+            $("#matchImg").attr("src", data.photo);
+            console.log(data.name);
+
+            $("#matchModal").modal("show");
+          });
           
         } else {
           alert(
