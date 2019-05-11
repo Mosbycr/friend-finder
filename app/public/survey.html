@@ -217,7 +217,7 @@
       </div>
 
       <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="matchModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content text-center">
             <div class="modal-header">
               <h3 class="modal-title" id="matchModal">Meet Your Match</h3>
@@ -298,7 +298,7 @@
               $("#question10").val()
             ]
           };
-          console.log(newProfile);
+          // console.log(newProfile);
 
           $.ajax({
             url: "/api/friends",
@@ -307,8 +307,7 @@
           }).then(function(data) {
             $("#matchName").text(data.name);
             $("#matchImg").attr("src", data.photo);
-            console.log(data.name);
-
+            // console.log(data.name);
             $("#matchModal").modal("show");
           });
           
