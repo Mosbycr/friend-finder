@@ -24,3 +24,17 @@ Once you have opened the application to the main page:
 * upon hitting submit a modal will pop up with the name and picture of the users best match out of the profiles available
 
 ## Demos
+The home page for Friend Finder:
+![friendFinderMain](https://user-images.githubusercontent.com/46547100/57573624-8f9c9c80-73f8-11e9-84bb-a71356b5bec2.PNG)
+
+
+The survey page for Friend Finder:
+![friendFinderSurvey](https://user-images.githubusercontent.com/46547100/57573626-8f9c9c80-73f8-11e9-9b64-72cd1e3c3cd1.PNG)
+
+
+The modal showing a user's best friend match:
+![friendFinderModal](https://user-images.githubusercontent.com/46547100/57573625-8f9c9c80-73f8-11e9-994a-adf20164c45d.PNG)
+
+
+The Api JSON containing all user's profiles and answers to the survey questions:
+![friendFinderApiJson](https://user-images.githubusercontent.com/46547100/57573627-8f9c9c80-73f8-11e9-826d-ea090b3b88b4.PNG)
